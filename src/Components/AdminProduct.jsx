@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./SideBar"; // Import the Sidebar
+
 const AdminProduct = () => {
   const [products, setProducts] = useState([]);
 
@@ -7,14 +8,17 @@ const AdminProduct = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem("token");
-        
-        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products/admin`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+
+        const response = await fetch(
+          `https://ecommerce-backend-server-production.up.railway.app/products/admin`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -28,8 +32,15 @@ const AdminProduct = () => {
   const toggleProductStatus = async (productId, currentStatus) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products/${productId}/archive`, {
-        method: "PUT",  // Using PUT to match the route for archiving products
+      const endpoint = currentStatus
+        ? `https://ecommerce-backend-server-production.up.railway.app/products/${productId}/archive`
+        : `https://ecommerce-backend-server-production.up.railway.app/products/${productId}/restock`;
+      console.log(productId);
+      
+      const method = "PUT"; // Use PATCH for both archive and restock
+
+      const response = await fetch(endpoint, {
+        method,
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -94,7 +105,9 @@ const AdminProduct = () => {
                       <button
                         onClick={() => toggleProductStatus(product._id, product.isActive)}
                         className={`py-2 px-4 rounded-md text-white font-semibold ${
-                          product.isActive ? "bg-red-600 hover:bg-red-700" : "bg-green-600 hover:bg-green-700"
+                          product.isActive
+                            ? "bg-red-600 hover:bg-red-700"
+                            : "bg-green-600 hover:bg-green-700"
                         }`}
                       >
                         {product.isActive ? "Deactivate" : "Activate"}
