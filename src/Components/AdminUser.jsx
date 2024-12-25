@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./SideBar"; // Import the Sidebar
+require('dotenv').config();
 
 const AdminUserManagement = () => {
   const [users, setUsers] = useState([]);

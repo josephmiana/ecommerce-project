@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+require('dotenv').config();
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

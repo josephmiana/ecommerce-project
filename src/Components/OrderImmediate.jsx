@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from 'sweetalert2';
+require('dotenv').config();
 
 const ImmediateOrder = () => {
   const location = useLocation();

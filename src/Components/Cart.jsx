@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";  // Import useNavigate from react-router-dom
+require('dotenv').config();
 
 const ViewCart = () => {
   const [cartData, setCartData] = useState([]);

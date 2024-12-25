@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import {jwtDecode} from "jwt-decode"; // Correct import for jwtDecode
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+require('dotenv').config();
 
 const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => {
   const [email, setEmail] = useState("");

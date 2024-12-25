@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import LoginModal from "./Login";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+require('dotenv').config();
 
 const ProductDetails = () => {
   const { id } = useParams();
