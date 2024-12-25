@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./SideBar"; // Import the Sidebar
-require('dotenv').config();
 const AdminProduct = () => {
   const [products, setProducts] = useState([]);
 
@@ -9,7 +8,7 @@ const AdminProduct = () => {
       try {
         const token = localStorage.getItem("token");
         
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/products/admin`, {
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products/admin`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -29,7 +28,7 @@ const AdminProduct = () => {
   const toggleProductStatus = async (productId, currentStatus) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${productId}/archive`, {
+      const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products/${productId}/archive`, {
         method: "PUT",  // Using PUT to match the route for archiving products
         headers: {
           Authorization: `Bearer ${token}`,

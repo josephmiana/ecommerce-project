@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-require('dotenv').config();
 
 const Orders = () => {
   const [activeTab, setActiveTab] = useState("Pending");
@@ -23,7 +22,7 @@ const Orders = () => {
         }
 
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/orders?status=${activeTab}&page=${currentPage}&limit=5`,
+          `https://ecommerce-backend-server-production.up.railway.app/orders?status=${activeTab}&page=${currentPage}&limit=5`,
           {
             method: "GET",
             headers: {

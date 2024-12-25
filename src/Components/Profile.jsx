@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-require('dotenv').config();
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -19,7 +18,7 @@ const Profile = () => {
         }
 
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/details`,
+          `https://ecommerce-backend-server-production.up.railway.app/details`,
           {
             method: "GET",
             headers: {

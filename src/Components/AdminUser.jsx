@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./SideBar"; // Import the Sidebar
-require('dotenv').config();
 
 const AdminUserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +10,7 @@ const AdminUserManagement = () => {
         const token = localStorage.getItem("token");
         
         // Fetch users from the /users/list route
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/users/list`, {
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/users/list`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -37,7 +36,7 @@ const AdminUserManagement = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/${userId}/setAsAdmin`, {
+      const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/${userId}/setAsAdmin`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

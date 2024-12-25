@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from 'sweetalert2';
-require('dotenv').config();
 
 const CheckOut = () => {
   const location = useLocation();
@@ -31,7 +30,7 @@ const CheckOut = () => {
           return;
         }
 
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/details`, {
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/details`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

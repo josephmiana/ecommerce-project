@@ -6,7 +6,6 @@ import {
 } from "@heroicons/react/20/solid";
 import Swal from "sweetalert2"; // Import Swal
 import LoginModal from "./Login";
-require('dotenv').config();
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +33,7 @@ const Navbar = () => {
         return;
       }
 
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/carts`, {
+      const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/carts`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

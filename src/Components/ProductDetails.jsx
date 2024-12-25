@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import LoginModal from "./Login";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-require('dotenv').config();
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -84,7 +83,7 @@ const ProductDetails = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/carts/add`, {
+      const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/carts/add`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

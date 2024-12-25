@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-require('dotenv').config();
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -8,7 +7,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products`);
         const data = await response.json();
         console.log(data);
 

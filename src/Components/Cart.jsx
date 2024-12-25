@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";  // Import useNavigate from react-router-dom
-require('dotenv').config();
 
 const ViewCart = () => {
   const [cartData, setCartData] = useState([]);
@@ -16,7 +15,7 @@ const ViewCart = () => {
           setCartData([]);
           return;
         }        
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/carts`, {
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/carts`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
