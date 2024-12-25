@@ -119,7 +119,7 @@ const ImmediateOrder = () => {
     console.log("Payload:", payload);
   
     try {
-      const response = await fetch("http://localhost:4001/orders/create-immediate", {
+      const response = await fetch("https://ecommerce-backend-server-production.up.railway.app/orders/create-immediate", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -7,7 +7,7 @@ const AdminRoute = ({ children }) => {
 
   if (!token) {
     // If no token exists, redirect to login
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   try {
@@ -22,7 +22,7 @@ const AdminRoute = ({ children }) => {
   } catch (error) {
     // If there's an error decoding the token, redirect to login
     console.error("Invalid token:", error);
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 };
 

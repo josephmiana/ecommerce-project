@@ -16,7 +16,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4001/products/${id}`);
+        const response = await fetch(`https://ecommerce-backend-server-production.up.railway.app/products/${id}`);
         const data = await response.json();
         setProduct(data);        
       } catch (error) {

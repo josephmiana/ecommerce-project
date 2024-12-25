@@ -105,7 +105,7 @@ const CheckOut = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:4001/orders/create-from-cart", {
+      const response = await fetch("https://ecommerce-backend-server-production.up.railway.app/orders/create-from-cart", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
